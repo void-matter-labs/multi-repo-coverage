@@ -8,7 +8,8 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',
     coverage: {
-      reporter: ['lcov']
+      reporter: ['lcov', 'text'],
+      exclude: ["./**/*.stories.ts", "./**/*.stories.tsx"]
     }
   }
 })
