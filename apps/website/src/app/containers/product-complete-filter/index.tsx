@@ -8,14 +8,14 @@ export default function ProductCompleteFilter(){
   const { data, isLoading } = useQuery({
     queryKey: ["product-complete-filter"],
     queryFn: ()=>{
-      return fetch("https://example.com/products").then(res=>res.json())
-    }
+      return fetch("https://example.com/filters").then(res=>res.json())
+    },
+    retry: 0
   })
 
   const { mutate, data: products, isPending: isLoadingProducts} = useMutation({
     mutationFn: (data: {maximo: number, minimo: number})=>{
       return fetch("https://example.com/products", {
-        method: "POST",
         body: JSON.stringify(data)
       }).then(res=>res.json())
     }

@@ -13,9 +13,6 @@ const meta = {
     layout: 'centered',
   },
   tags: ['autodocs'],
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
   args: { onClick: fn() },
 } satisfies Meta<typeof ProductCompleteFilter>;
 
