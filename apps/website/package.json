@@ -13,9 +13,11 @@
   },
   "dependencies": {
     "@tanstack/react-query": "^5.66.0",
+    "inversify": "^6.2.2",
     "next": "15.1.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "reflect-metadata": "^0.2.2",
     "ui-components": "workspace:*"
   },
   "devDependencies": {
