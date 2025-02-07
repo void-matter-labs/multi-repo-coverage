@@ -7,8 +7,8 @@ export default function PriceFilter<T extends string>({
   initialDefaultCheckedId,
   multi,
   onChange
-}: Readonly<PriceFilterProps<T>>){
-  const handleChange = useCallback((event: ChangeEvent<HTMLInputElement>)=>{
+}: Readonly<PriceFilterProps<T>>) {
+  const handleChange = useCallback((event: ChangeEvent<HTMLInputElement>) => {
     const { currentTarget } = event
     const {
       max,
@@ -26,18 +26,18 @@ export default function PriceFilter<T extends string>({
 
   return <div>
     {
-      pricingElements.map(({id, label, range: {max, min}})=><label key={id}>
+      pricingElements?.map(({ id, label, range: { max, min } }) => <label key={id}>
         {label}
         <Checkbox
           id={id}
           defaultChecked={initialDefaultCheckedId === id}
-          type={ multi ? "checkbox": "radio"}
-          name="pricing" 
+          type={multi ? "checkbox" : "radio"}
+          name="pricing"
           onChange={handleChange}
           data-max={max}
           data-min={min}
         />
-        </label>)
+      </label>)
     }
   </div>
 }

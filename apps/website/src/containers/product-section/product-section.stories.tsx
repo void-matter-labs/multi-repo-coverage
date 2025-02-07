@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { fn, within, waitFor } from '@storybook/test';
+import { fn, within, waitFor, userEvent, expect } from '@storybook/test';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import ProductSection from '.';
+
 
 const meta = {
   title: 'Example/ProductSection',
@@ -22,9 +23,6 @@ type Story = StoryObj<typeof meta>;
 // Validate filter options
 export const ValidateFilterOptions: Story = {
   async play({ canvasElement }) {
-
-    console.log('Running test from product-section.stories.tsx')
-
     const canvas = within(canvasElement)
 
     await waitFor(() => {
@@ -34,5 +32,22 @@ export const ValidateFilterOptions: Story = {
     })
   }
 };
+
+export const FilterProducts: Story = {
+  async play({ canvasElement }) {
+    const canvas = within(canvasElement)
+
+    await waitFor(async () => {
+      await userEvent.click(canvas.getByLabelText('All Price'))
+    })
+
+    await waitFor(() => {
+      const product = canvas.getByText('Product 1')
+
+      expect(product).toBeInTheDocument()
+    })
+  }
+}
+
 
 export const Primary: Story = {}
