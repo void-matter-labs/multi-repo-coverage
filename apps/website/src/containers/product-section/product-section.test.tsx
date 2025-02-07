@@ -51,7 +51,6 @@ describe('PriceFilter', () => {
 
   afterEach(() => {
     global.fetch = originalFetch;
-    jest.clearAllMocks()
   })
 
   it("when load price filter show price options", async () => {

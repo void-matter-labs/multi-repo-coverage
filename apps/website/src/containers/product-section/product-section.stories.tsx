@@ -38,7 +38,8 @@ export const FilterProducts: Story = {
     const canvas = within(canvasElement)
 
     await waitFor(async () => {
-      await userEvent.click(canvas.getByLabelText('All Price'))
+      const filter = canvas.getByLabelText('All Price')
+      await userEvent.click(filter)
     })
 
     await waitFor(() => {
